@@ -1,0 +1,65 @@
+﻿@model DemoCRUD.CityTable
+@{
+    ViewBag.Title = "AddCity";
+}
+
+<h2>AddCity</h2>
+<hr />
+@using (Html.BeginForm("AddCity", "City", FormMethod.Post))
+{
+    <div class="form-horizontal">
+        <hr />
+        <div>
+            <div>
+                @Html.Label("Country")
+            </div>
+            <div>
+                @Html.DropDownListFor(x => x.CountryId, new SelectList(ViewBag.countrylist, "Value", "Text"), "Select State", htmlAttributes: new { @class = "form-control", @onchange = "FillCity()" })
+            </div>
+            <div>
+                @Html.Label("State")
+            </div>
+            <div>
+                @Html.DropDownListFor(m => m.StateId, new SelectList(Enumerable.Empty<SelectListItem>(), "Value", "Text"), "Select city", new { @class = "form-control", @id = "StateId" })
+            </div>
+            <div>
+                @Html.LabelFor(x => x.City)
+            </div>
+            <div>
+                @Html.EditorFor(x => x.City)
+            </div>
+        </div>
+        <br />
+        <div>
+            <div>
+                <input type="submit" value="Save" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+<div>
+    <br />
+    @Html.ActionLink("Back to List", "Index")
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+@section Scripts {
+    <script>
+        function FillCity() {
+            debugger;
+            var stateId = $('#CountryId').val();
+            $.ajax({
+                url: 'City/FillState',
+                type: "GET",
+                dataType: "JSON",
+                data: { CountryDetail: CountryId },
+                success: function (States) {
+                    $("#StateId").html("");
+                    $.each(States, function (i, state) {
+                        $("#StateId").append(
+                            $('<option></option>').val(city.stateId).html(city.statName));
+                    });
+                }
+            });
+        }
+    </script>
+}

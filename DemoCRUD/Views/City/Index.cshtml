@@ -1,0 +1,51 @@
+﻿@model IEnumerable<DemoCRUD.Models.CityViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<hr />
+@using (Html.BeginForm("Index", "City", FormMethod.Get))
+{
+    @Html.ActionLink("Add New City", "AddCity", new { @class = "btn btn-primary" })
+    <hr />
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayName("City")
+            </th>
+            <th>
+                @Html.DisplayName("State")
+            </th>
+            <th>
+                @Html.DisplayName("Country")
+            </th>
+            <th></th>
+            <th>
+                @Html.DisplayName("Action")
+            </th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @item.City
+            </td>
+            <td>
+                @item.statename
+            </td>
+            <td>
+                @item.countryname
+            </td>
+            <td></td>
+            <td>
+                @Html.ActionLink("Edit", "EditCity", new { id = item.CityId }, htmlAttributes: new { @class = "btn btn-warning btn-large" }) ||
+                @Html.ActionLink("Delete", "DeleteCity", new { id = item.CityId }, htmlAttributes: new { @class = "btn btn-danger btn-large" })
+            </td>
+        </tr>
+        }
+    </table>
+
+}
+

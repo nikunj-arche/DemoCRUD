@@ -1,0 +1,31 @@
+﻿@model DemoCRUD.Country
+@{
+    ViewBag.Title = "Insert";
+}
+
+<h2>Insert</h2>
+@using (Html.BeginForm("Insert", "CountryDetail", FormMethod.Post))
+{
+   
+    <div class="form-horizontal">
+        <h4>Country</h4>
+        <hr />
+        <div>
+            @Html.LabelFor(x => x.CountryName)
+            <div>
+                @Html.EditorFor(x => x.CountryName)
+            </div>
+        </div>
+        <br />
+        <div>
+            <div>
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+    <br />
+}
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+

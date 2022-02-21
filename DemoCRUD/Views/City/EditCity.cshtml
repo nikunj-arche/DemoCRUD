@@ -1,0 +1,44 @@
+﻿@model DemoCRUD.CityTable
+@{
+    ViewBag.Title = "EditCity";
+}
+
+<h2>EditCity</h2>
+@using (Html.BeginForm("EditCity", "City", FormMethod.Post))
+{
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.HiddenFor(x => x.CityId)
+        <div>
+            <div>
+                @Html.Label("Country")
+            </div>
+            <div>
+                @Html.DropDownListFor(x => x.CountryId, new SelectList(ViewBag.countrylist, "Value", "Text"), htmlAttributes: new { @class = "form-control" })
+            </div>
+            <div>
+                @Html.Label("State")
+            </div>
+            <div>
+                @Html.DropDownListFor(x => x.StateId, new SelectList(ViewBag.statelist, "Value", "Text"), htmlAttributes: new { @class = "form-control" })
+            </div>
+            <div>
+                @Html.LabelFor(x => x.City)
+            </div>
+            <div>
+                @Html.EditorFor(x => x.City)
+            </div>
+        </div>
+        <br />
+        <div>
+            <div>
+                <input type="submit" value="Save" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+<div>
+    <br />
+    @Html.ActionLink("Back to List", "Index")
+</div>
