@@ -131,6 +131,7 @@
     <Compile Include="CityTable.cs">
       <DependentUpon>Contry_info.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\BrajeshController.cs" />
     <Compile Include="Controllers\CityController.cs" />
     <Compile Include="Controllers\CountryDetailController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -238,6 +239,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Brajesh\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
