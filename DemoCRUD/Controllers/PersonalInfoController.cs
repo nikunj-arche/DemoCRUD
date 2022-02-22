@@ -11,7 +11,7 @@ namespace DemoCRUD.Controllers
         public ActionResult Index()
         {
             WorldEntities db = new WorldEntities();
-            return View(db.Country.ToList());
+            return View(db.Country.ToList();
         }
     }
 }
