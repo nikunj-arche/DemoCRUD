@@ -236,10 +236,10 @@
     <Content Include="Views\City\AddCity.cshtml" />
     <Content Include="Views\City\EditCity.cshtml" />
     <Content Include="Views\City\DeleteCity.cshtml" />
+    <Content Include="Views\Brajesh\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Brajesh\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
