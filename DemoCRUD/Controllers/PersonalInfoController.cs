@@ -12,6 +12,7 @@ namespace DemoCRUD.Controllers
         {
             WorldEntities db = new WorldEntities();
             return View(db.Country.ToList());
+
             //commit changes
         }
     }
